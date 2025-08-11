@@ -1,0 +1,227 @@
+{
+    "material-icon-theme.folders.customClones": [
+        {
+            "name": "users-admin",
+            "base": "admin",
+            "color": "light-green-500",
+            "lightColor": "light-green-700",
+            "folderNames": [
+                "users",
+                "user"
+            ],
+            "rootFolderNames": [
+                "users"
+            ]
+        },
+        {
+            "name": "roles-admin",
+            "base": "coverage",
+            "color": "purple-400",
+            "folderNames": [
+                "roles",
+                "role"
+            ],
+            "rootFolderNames": [
+                "users"
+            ]
+        },
+        {
+            "name": "clear-data",
+            "base": "trash",
+            "color": "red-400",
+            "folderNames": [
+                "delete",
+                "deletes",
+                "remove",
+                "removes",
+                "destoy",
+                "destoys"
+            ],
+            "rootFolderNames": [
+                "destoy"
+            ]
+        },
+        {
+            "name": "edit",
+            "base": "custom",
+            "color": "green-400",
+            "folderNames": [
+                "edit",
+                "edits"
+            ],
+            "rootFolderNames": [
+                "edits"
+            ]
+        },
+        {
+            "name": "create",
+            "base": "helper",
+            "color": "blue-400",
+            "folderNames": [
+                "create",
+                "creates",
+                "make",
+                "makes"
+            ],
+            "rootFolderNames": [
+                "creates"
+            ]
+        },
+        {
+            "name": "list",
+            "base": "views",
+            "color": "blue-400",
+            "folderNames": [
+                "list",
+                "lists"
+            ],
+            "rootFolderNames": [
+                "lists"
+            ]
+        },
+        {
+            "name": "show",
+            "base": "review",
+            "color": "blue-400",
+            "folderNames": [
+                "show",
+                "shows"
+            ],
+            "rootFolderNames": [
+                "shows"
+            ]
+        },
+        {
+            "name": "form",
+            "base": "src",
+            "color": "green-400",
+            "folderNames": [
+                "form",
+                "forms"
+            ],
+            "rootFolderNames": [
+                "forms"
+            ]
+        },
+        {
+            "name": "request",
+            "base": "upload",
+            "color": "blue-400",
+            "folderNames": [
+                "request",
+                "requests"
+            ],
+            "rootFolderNames": [
+                "requests"
+            ]
+        },
+        {
+            "name": "http",
+            "base": "contract",
+            "color": "blue-400",
+            "folderNames": [
+                "http",
+                "https"
+            ],
+            "rootFolderNames": [
+                "https"
+            ]
+        },
+        {
+            "name": "bootstrap",
+            "base": "stylus",
+            "color": "green-800",
+            "folderNames": [
+                "bootstrap",
+                "bootstraps"
+            ],
+            "rootFolderNames": [
+                "bootstraps"
+            ]
+        },
+        {
+            "name": "storage",
+            "base": "server",
+            "color": "green-400",
+            "folderNames": [
+                "storage",
+                "storages"
+            ],
+            "rootFolderNames": [
+                "storages"
+            ]
+        },
+        {
+            "name": "factory",
+            "base": "mojo",
+            "color": "green",
+            "folderNames": [
+                "factory",
+                "factories"
+            ],
+            "rootFolderNames": [
+                "factories"
+            ]
+        },
+        {
+            "name": "migration",
+            "base": "generator",
+            "color": "blue-500",
+            "folderNames": [
+                "migration",
+                "migrations"
+            ],
+            "rootFolderNames": [
+                "migrations"
+            ]
+        },
+        {
+            "name": "framework",
+            "base": "context",
+            "color": "green-800",
+            "folderNames": [
+                "framework",
+                "frameworks"
+            ],
+            "rootFolderNames": [
+                "frameworks"
+            ]
+        },
+        {
+            "name": "session",
+            "base": "cloudflare",
+            "color": "green-800",
+            "folderNames": [
+                "session",
+                "sessions"
+            ],
+            "rootFolderNames": [
+                "sessions"
+            ]
+        },
+        {
+            "name": "feature",
+            "base": "archive",
+            "color": "green-400",
+            "folderNames": [
+                "feature",
+                "features"
+            ],
+            "rootFolderNames": [
+                "features"
+            ]
+        },
+        {
+            "name": "unit",
+            "base": "directive",
+            "color": "green-900",
+            "folderNames": [
+                "unit",
+                "units"
+            ],
+            "rootFolderNames": [
+                "units"
+            ]
+        }
+    ]
+}
