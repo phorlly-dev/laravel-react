@@ -1,22 +1,22 @@
 <?php
-
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\UserResource;
 
 class Usercontroller extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $query = User::query()->latest();
 
-        if ($search = request('search')) {
+        if ($search = $request->input('search')) {
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
                     ->orWhere('email', 'like', "%{$search}%")
@@ -24,20 +24,12 @@ class Usercontroller extends Controller
             });
         }
 
-        $paginator = $query->paginate(9)->withQueryString();
+        $paginator = $query->paginate(6)->withQueryString();
 
         return response()->json([
-            'data' => UserResource::collection($paginator)->resolve(),
-            'meta' => [
-                'current_page' => $paginator->currentPage(),
-                'last_page'    => $paginator->lastPage(),
-                'per_page'     => $paginator->perPage(),
-                'total'        => $paginator->total(),
-            ],
-            'links' => [
-                'next' => $paginator->nextPageUrl(),
-                'prev' => $paginator->previousPageUrl(),
-            ],
+            'data'  => UserResource::collection($paginator)->resolve(),
+            'meta'  => $this->meta($paginator),
+            'links' => $this->links($paginator),
         ]);
     }
 
@@ -72,4 +64,5 @@ class Usercontroller extends Controller
     {
         //
     }
+
 }

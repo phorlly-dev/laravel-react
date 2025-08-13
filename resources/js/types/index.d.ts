@@ -1,5 +1,6 @@
 import { LucideIcon } from 'lucide-react';
 import type { Config } from 'ziggy-js';
+import { User } from '@/types/user';
 
 export interface Auth {
     user: User;
@@ -31,41 +32,5 @@ export interface SharedData {
     [key: string]: unknown;
 }
 
-export interface User {
-    id: number;
-    name: string;
-    email: string;
-    is_admin: boolean;
-    sex: string;
-    status: boolean;
-    avatar?: string;
-    phone: string;
-    dob: string;
-    address: string;
-    email_verified_at: string | null;
-    created_at: string;
-    updated_at: string;
-    [key: string]: unknown; // This allows for additional properties...
-}
 
 
-export interface PagePayload {
-    data: User[];
-    meta: {
-        current_page: number;
-        last_page: number;
-        per_page: number;
-        total: number
-    };
-    links: {
-        next: string | null;
-        prev: string | null
-    };
-    search: string;
-}
-
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}

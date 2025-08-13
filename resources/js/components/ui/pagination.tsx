@@ -1,4 +1,5 @@
-import { PaginationProps } from "@/types";
+import { PaginationProps } from "@/types/user";
+
 
 export default function Pagination({
   currentPage,

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { formatPhone, gender, Initials } from '@/lib';
 import { Highlight } from '@/lib/highlight';
 import { cn } from '@/lib/utils';
-import type { User } from '@/types';
+import { User } from '@/types/user';
 
 export default function UserIDCard({ user, className, find }: { user: User; className?: string; find: string }) {
     const avatar = user.avatar;

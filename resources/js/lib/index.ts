@@ -1,3 +1,6 @@
+import { SharedData } from "@/types"
+import { usePage } from "@inertiajs/react"
+
 export function formatPhone(phone: string | null | undefined) {
     if (!phone) return '—'
     // Remove non-digits
@@ -34,3 +37,9 @@ export function gender(key: string) {
     }
 }
 
+export function me() {
+    const page = usePage<SharedData>();
+    const { auth } = page.props;
+
+    return auth.user;
+}
