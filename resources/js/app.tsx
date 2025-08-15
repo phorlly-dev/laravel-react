@@ -1,10 +1,17 @@
 import '../css/app.css';
 
-import { createInertiaApp } from '@inertiajs/react';
+import DT from 'datatables.net-dt';
+import DataTable from 'datatables.net-react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { FilterMatchMode, PrimeReactProvider } from 'primereact/api';
+import {
+    FilterMatchMode,
+    PrimeReactProvider,
+} from 'primereact/api';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+
+import { createInertiaApp } from '@inertiajs/react';
+
 import { store } from './hooks';
 import { initializeTheme } from './hooks/use-appearance';
 
@@ -51,11 +58,11 @@ createInertiaApp({
         };
 
         root.render(
-            <PrimeReactProvider value={value}>
-                <Provider store={store}>
+            <Provider store={store}>
+                <PrimeReactProvider value={value}>
                     <App {...props} />
-                </Provider>
-            </PrimeReactProvider>,
+                </PrimeReactProvider>
+            </Provider>,
         );
     },
     progress: {
@@ -65,6 +72,7 @@ createInertiaApp({
 
 // This will set light / dark mode on load...
 initializeTheme();
+DataTable.use(DT);
 
 type values = {
     appendTo: 'self';

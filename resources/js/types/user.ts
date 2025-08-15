@@ -16,28 +16,23 @@ export interface User {
 }
 
 export interface UsersState {
-    items: User[]
-    page: number
-    lastPage: number
-    total: number
-    search: string
-    loading: boolean
-    error: string | null
+    items: User[];
+    page: number;
+    last: number;
+    total: number;
+    links: any;
+    search: string;
+    loading: boolean;
+    error: string | null;
 }
 
 export const initialState: UsersState = {
     items: [],
     page: 1,
-    lastPage: 1,
+    last: 1,
+    links: [],
     total: 0,
     search: '',
     loading: false,
     error: null,
-}
-
-export interface PaginationProps {
-    currentPage: number;
-    totalPages: number;
-    onPageChange: (page: number) => void;
-}
-
+};

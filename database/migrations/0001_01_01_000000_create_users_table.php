@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_admin')->default(false);
-            $table->enum('sex', ['male', 'female', 'other'])->default('other');
+            $table->enum('sex', ['Male', 'Female', 'Other'])->default('other');
             $table->boolean('status')->default(true);
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();

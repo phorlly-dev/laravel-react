@@ -1,4 +1,3 @@
-// components/UserIDCard.tsx
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { formatPhone, gender, Initials } from '@/lib';
 import { Highlight } from '@/lib/highlight';
@@ -58,7 +57,7 @@ export default function UserIDCard({ user, className, find }: { user: User; clas
 
                             <div className="font-semibold text-slate-800 dark:text-gray-200">Gender</div>
                             <div className="text-slate-400">:</div>
-                            <div className="truncate dark:text-gray-200">{gender(user.sex)}</div>
+                            <div className="truncate dark:text-gray-200">{user.sex}</div>
 
                             <div className="font-semibold text-slate-800 dark:text-gray-200">Phone</div>
                             <div className="text-slate-400">:</div>

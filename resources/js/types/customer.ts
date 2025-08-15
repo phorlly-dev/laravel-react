@@ -1,4 +1,3 @@
-
 export interface Country {
     id: number;
     name: string;
@@ -17,17 +16,12 @@ export interface Customer {
     country: Country;
     company: string;
     date: string | Date;
-    status: string;        // 'new' | 'qualified' | ...
+    status: string; // 'new' | 'qualified' | ...
     verified: boolean | number;
     activity: number;
     representative: Representative;
-    balance: number;       // note: number (not string)
+    balance: number; // note: number (not string)
     created_at: string;
     updated_at: string;
     [key: string]: unknown;
-}
-
-export interface CustomerPayload {
-    data: Customer[];
-    meta: { total: number; status: string };
 }

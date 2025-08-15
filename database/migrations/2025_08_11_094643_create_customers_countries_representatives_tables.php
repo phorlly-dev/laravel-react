@@ -34,7 +34,7 @@ return new class extends Migration
             $table->foreignId('country_id')->constrained();
             $table->string('company');
             $table->date('date')->nullable();
-            $table->enum('status', ['qualified', 'unqualified', 'new', 'negotiation', 'renewal', 'proposal']);
+            $table->enum('status', ['Qualified', 'Unqualified', 'New', 'Negotiation', 'Renewal', 'Proposal']);
             $table->boolean('verified')->default(false);
             $table->integer('activity');
             $table->foreignId('representative_id')->constrained();

@@ -1,61 +1,44 @@
-import { PaginationProps } from "@/types/user";
+import { PaginationProps } from "@/types/paginate";
+import { Button } from "./button";
 
 
 export default function Pagination({
-  currentPage,
-  totalPages,
-  onPageChange,
+  current,
+  last,
+  links,
+  onChange,
 }: PaginationProps) {
-  const getPageNumbers = () => {
-    const pages = [];
-    const maxVisible = 3; // show only a few numbers
-    const startPage = Math.max(1, currentPage - 1);
-    const endPage = Math.min(totalPages, startPage + maxVisible - 1);
-
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i);
-    }
-
-    return pages;
-  };
-
   return (
-    <div className="flex items-center justify-center space-x-2 py-4">
-      {/* Previous Button */}
-      <button
-        className="px-3 py-1 rounded border disabled:opacity-50"
-        onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-      >
-        Previous
-      </button>
+    <div className="flex items-center justify-center space-x-1 py-4">
+      {links.map((link, idx) => {
+        // Laravel returns "..." as separator, so we disable that button
+        const isDisabled = link.url === null;
+        const isActive =
+          typeof link.active === "boolean"
+            ? link.active
+            : Boolean(link.active === 1);
 
-      {/* Page Numbers */}
-      {getPageNumbers().map((page) => (
-        <button
-          key={page}
-          onClick={() => onPageChange(page)}
-          className={`px-3 py-1 rounded border ${
-            page === currentPage
-              ? "bg-blue-500 text-white"
-              : "bg-white dark:bg-gray-800 text-black dark:text-white"
-          }`}
-        >
-          {page}
-        </button>
-      ))}
+        // Extract page number from Laravel's URL
+        let pageNum: number | null = null;
+        if (link.url) {
+          const params = new URLSearchParams(link.url.split("?")[1]);
+          pageNum = Number(params.get("page"));
+        }
 
-      {/* Ellipsis if more pages */}
-      {currentPage + 1 < totalPages && <span>...</span>}
-
-      {/* Next Button */}
-      <button
-        className="px-3 py-1 rounded border disabled:opacity-50"
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-      >
-        Next
-      </button>
+        return (
+          <button
+            key={idx}
+            className={`px-3 py-1 rounded-full border ${
+              isActive
+                ? "bg-blue-500 text-white"
+                : "bg-white dark:bg-gray-800 text-black dark:text-white"
+            } ${isDisabled ? "opacity-50 cursor-not-allowed" : ""}`}
+            onClick={() => pageNum && onChange(pageNum)}
+            disabled={isDisabled}
+            dangerouslySetInnerHTML={{ __html: link.label || "" }} // Laravel uses HTML entities like &laquo;
+          />
+        );
+      })}
     </div>
   );
 }

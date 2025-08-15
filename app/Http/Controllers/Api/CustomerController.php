@@ -1,8 +1,8 @@
 <?php
+
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CustomerCollection;
 use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
 use Illuminate\Http\JsonResponse;
@@ -13,12 +13,17 @@ class CustomerController extends Controller
     /**
      * Display a listing of customers.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $customers = Customer::with(['country', 'representative'])
-            ->orderByDesc('id')->get();
-
-        return new CustomerCollection($customers);
+        
+        return   $this->api(
+            model: Customer::class,
+            sort_order: 'desc',
+            search: $request->input('search'),
+            search_fields: ['name', 'company', 'country.name', 'representative.name'],
+            with: ['country', 'representative'],
+            per_page: $request->input('per_page', 10) // make sure per_page works
+        );
     }
 
     /**

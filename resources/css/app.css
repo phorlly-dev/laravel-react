@@ -3,7 +3,9 @@
 @import 'primereact/resources/themes/lara-light-indigo/theme.css';
 @import 'primereact/resources/primereact.min.css';
 @import 'primeicons/primeicons.css';
-
+@import 'datatables.net-dt';
+@import 'datatables.net-responsive-dt';
+@import 'datatables.net-select-dt';
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -141,4 +143,59 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+/* Wrapper container */
+.dataTables_wrapper {
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Search box */
+.dataTables_filter input {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.dataTables_filter input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+/* Per-page select */
+.dataTables_length select {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    outline: none;
+}
+
+.dataTables_length select:focus {
+    border-color: #3b82f6;
+}
+
+/* Pagination buttons */
+.dataTables_paginate .paginate_button {
+    border-radius: 6px;
+    border: 1px solid transparent;
+    padding: 4px 10px;
+    margin: 0 2px;
+    color: #555 !important;
+    background-color: #f9fafb !important;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background-color: #e5e7eb !important;
+    color: #111 !important;
+}
+
+/* Active page button */
+.dataTables_paginate .paginate_button.current {
+    background-color: #3b82f6 !important;
+    color: #fff !important;
+    border-color: #3b82f6 !important;
 }

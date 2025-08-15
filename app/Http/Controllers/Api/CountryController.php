@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CountryResource;
 use App\Models\Country;
+use App\Models\FullCountry;
 use Illuminate\Http\JsonResponse;
 
 class CountryController extends Controller
@@ -30,5 +31,13 @@ class CountryController extends Controller
             'message' => 'Country retrieved successfully',
             'data'    => new CountryResource($country),
         ]);
+    }
+
+    /**
+     * Display a listing of full_countries.
+     */
+    public function list()
+    {
+        return $this->api(FullCountry::class, sort_order: 'desc');
     }
 }

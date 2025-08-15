@@ -17,6 +17,7 @@ Route::middleware(['auth:sanctum', 'throttle:api'])->group(function () {
         Route::post('logout', 'logout')->name('clear');
     });
 
+    //User routes
     Route::apiResource('users', UserController::class);
 
     // Customer routes
@@ -24,6 +25,7 @@ Route::middleware(['auth:sanctum', 'throttle:api'])->group(function () {
     Route::get('customers-statistics', [CustomerController::class, 'statistics']);
 
     // Country routes
+    Route::get('countries/list', [CountryController::class, 'list']);
     Route::apiResource('countries', CountryController::class)->only(['index', 'show']);
 
     // Representative routes
